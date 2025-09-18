@@ -68,14 +68,16 @@
     }
 
     /* Desktop hover */
-    .links span:hover .popup {
-      visibility: visible;
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-      pointer-events: auto;
+    @media (hover: hover) {
+      .links span:hover .popup {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+        pointer-events: auto;
+      }
     }
 
-    /* Active class for mobile click */
+    /* Active class for mobile tap */
     .links span.active .popup {
       visibility: visible;
       opacity: 1;
@@ -106,16 +108,16 @@
   <img src="logo.png" alt="Avionium Logo">
 
   <div class="links">
-    <span onclick="togglePopup(this)">airworthiness
+    <span>airworthiness
       <div class="popup">Info about airworthiness.</div>
     </span> |
-    <span onclick="togglePopup(this)">systems
+    <span>systems
       <div class="popup">Info about systems.</div>
     </span> |
-    <span onclick="togglePopup(this)">data
+    <span>data
       <div class="popup">Info about data.</div>
     </span> |
-    <span onclick="togglePopup(this)">representation
+    <span>representation
       <div class="popup">Info about representation.</div>
     </span>
   </div>
@@ -127,26 +129,31 @@
   <script>
     let popupTimeout;
 
-    function togglePopup(el) {
-      // Close all other popups first
-      document.querySelectorAll(".links span").forEach(span => {
-        if (span !== el) span.classList.remove("active");
+    // Enable tap-to-open for mobile/touch
+    document.querySelectorAll(".links span").forEach(span => {
+      span.addEventListener("click", function (e) {
+        e.preventDefault();
+
+        // Close other popups
+        document.querySelectorAll(".links span").forEach(s => {
+          if (s !== span) s.classList.remove("active");
+        });
+
+        // Toggle current popup
+        span.classList.toggle("active");
+
+        // Auto-close after 5s if active
+        if (span.classList.contains("active")) {
+          clearTimeout(popupTimeout);
+          popupTimeout = setTimeout(() => {
+            span.classList.remove("active");
+          }, 5000);
+        }
       });
+    });
 
-      // Toggle current one
-      el.classList.toggle("active");
-
-      // If opened, auto-close after 5 seconds with fade-out
-      if (el.classList.contains("active")) {
-        clearTimeout(popupTimeout);
-        popupTimeout = setTimeout(() => {
-          el.classList.remove("active");
-        }, 5000);
-      }
-    }
-
-    // Close popup if clicked outside
-    document.addEventListener("click", function(e) {
+    // Close popups if clicking outside
+    document.addEventListener("click", function (e) {
       if (!e.target.closest(".links span")) {
         document.querySelectorAll(".links span").forEach(span => span.classList.remove("active"));
       }
