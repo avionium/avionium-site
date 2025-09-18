@@ -17,8 +17,7 @@
       font-family: "Montserrat", sans-serif;
       color: #000;
       margin: 0;
-      padding-top: 10vh;
-      align-items: center;
+      text-align: center;
     }
 
     main {
@@ -26,21 +25,23 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: flex-start;
+      margin-top: 20vh; /* shift content down ~1/3 */
     }
 
     img {
-      width: 80%;
-      max-width: 600px;
+      width: 64%;          /* smaller logo */
+      max-width: 480px;
       height: auto;
       display: block;
+      margin-bottom: 5rem; /* spacing before links */
     }
 
     .links {
-      margin-top: 0.75rem;
+      margin-top: 0;
       font-size: 0.8rem;
       font-weight: 500;
       color: #aaa;
-      text-align: center;
     }
 
     .links span {
@@ -63,11 +64,12 @@
       text-align: center;
       padding: 0.8rem;
       border-radius: 6px;
-      margin-top: 1rem;
+      margin-top: 0.5rem;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       transition: opacity 0.4s ease, transform 0.4s ease;
       font-size: 0.75rem;
       line-height: 1.4;
+      transform: translateY(10px);
     }
 
     .popup.show {
@@ -87,7 +89,6 @@
       color: #aaa;
       text-align: center;
       background: #fff;
-      border-top: 1px solid #eee;
     }
 
     footer a {
@@ -108,10 +109,10 @@
     <img src="logo.png" alt="Avionium Logo">
 
     <div class="links">
-      <span data-text="Experienced Airline, MRO & CAMO Engineers: Statuses & Compliance, Audit, Review, Build, Workscope">airworthiness</span> |
-      <span data-text="Experienced Implementation Consultants: Vendor Selection, Contracts, Design, Test, Deploy, Document, Train, Enhance">systems</span> |
-      <span data-text="Experienced Data Migration Consultants: Extract, Analysis, Cleanse, Restructure, Migrate">data</span> |
-      <span data-text="Experienced Reps: Onsite/Remote, Audits & Findings, Detailed Inspections, Technical Transitions-Returns-Deliveries-Storage, Problem Solving, Liaison, Reports">representation</span>
+      <span data-text="Experienced Airline, MRO & CAMO Engineering: Statuses & Compliance, Audit, Review, Build, Workscope">airworthiness</span> |
+      <span data-text="Experienced Implementations: Vendor Selection, Contracts, BPR, Design, Test, Deploy, Document, Train, Enhance">systems</span> |
+      <span data-text="Experienced Data Migration: Extract, Analyze, Cleanse, Restructure, Manipulate, Migrate">data</span> |
+      <span data-text="Experienced Reps: Onsite/Remote, Audit, OIL, Detailed Inspections, Technical Transitions-Returns-Deliveries-Storage, Problem Solve, Liaise, Report">representation</span>
     </div>
 
     <!-- Central popup -->
