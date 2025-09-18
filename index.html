@@ -26,15 +26,15 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      margin-top: 30vh; /* shift content down ~1/3 */
+      margin-top: 30vh; /* shift block down ~1/3 */
     }
 
     img {
-      width: 64%;          /* smaller logo */
+      width: 64%;
       max-width: 480px;
       height: auto;
       display: block;
-      margin-bottom: 5rem; /* spacing before links */
+      margin-bottom: 1.5rem; /* moderate gap before links */
     }
 
     .links {
@@ -106,7 +106,7 @@
 </head>
 <body>
   <main>
-    <img src="logo.png" alt="Avionium Logo">
+    <img id="logo" src="logo.png" alt="Avionium Logo">
 
     <div class="links">
       <span data-text="Experienced Airline, MRO & CAMO Engineering: Statuses & Compliance, Audit, Review, Build, Workscope">airworthiness</span> |
@@ -128,6 +128,7 @@
     const popup = document.getElementById("popupBox");
     let popupTimeout;
 
+    // Popup logic
     document.querySelectorAll(".links span").forEach(span => {
       // Desktop hover
       span.addEventListener("mouseenter", () => {
@@ -158,6 +159,25 @@
         popup.classList.remove("show");
       }
     });
+
+    // Logo cycle logic
+    const logo = document.getElementById("logo");
+    const logos = ["logo1.png", "logo2.png", "logo3.png"];
+    const originalLogo = "logo.png";
+    let index = 0;
+
+    function cycleLogos() {
+      setTimeout(() => {
+        logo.src = logos[index];
+        setTimeout(() => {
+          logo.src = originalLogo;
+          index = (index + 1) % logos.length;
+          cycleLogos(); // repeat cycle
+        }, 250); // show variation for 0.25s
+      }, 7000); // wait 15s on original
+    }
+
+    cycleLogos();
   </script>
 </body>
 </html>
