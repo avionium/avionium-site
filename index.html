@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Avionium</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Import Montserrat font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      background-color: #fff;
+      font-family: "Montserrat", sans-serif;
+      color: #000;
+      padding-top: 10vh;
+    }
+
+    img {
+      width: 80%;
+      max-width: 600px;
+      height: auto;
+      display: block;
+    }
+
+    .links {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #aaa;
+      text-align: center;
+    }
+
+    .links span {
+      cursor: pointer;
+      padding: 0 0.5rem;
+      position: relative;
+    }
+
+    .links span:hover {
+      color: #555;
+    }
+
+    /* Popup tooltip */
+    .popup {
+      visibility: hidden;
+      opacity: 0;
+      width: 200px;
+      background: #fff;
+      color: #333;
+      text-align: center;
+      padding: 0.6rem;
+      border-radius: 6px;
+      position: absolute;
+      top: 140%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+      z-index: 10;
+      font-size: 0.75rem;
+      pointer-events: none;
+    }
+
+    .links span:hover .popup {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+
+    /* Email link */
+    .email {
+      margin-top: 2rem; /* more space below the words */
+      font-size: 0.8rem;
+      color: #aaa;
+      text-align: center;
+    }
+
+    .email a {
+      color: #aaa;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .email a:hover {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <img src="logo.png" alt="Avionium Logo">
+
+  <div class="links">
+    <span>airworthiness
+      <div class="popup">Experienced Airline, MRO & CAMO Engineers: Statuses & Compliance, Audit, Review, Build, Workscope</div>
+    </span> |
+    <span>systems
+      <div class="popup">Experienced Implementation Consultants: Vendor Selection, Contracts, Design, Test, Deploy, Document, Train, Enhance</div>
+    </span> |
+    <span>data
+      <div class="popup">Experienced Data Migration Consultants: Extract, Analysis, Cleanse, Restructure, Migrate</div>
+    </span> |
+    <span>representation
+      <div class="popup">Experienced Reps: Onsite/Remote, Audits & Findings, Detailed Inspections, Technical Transitions-Returns-Deliveries-Storage, Problem Solving, Liaison, Reports</div>
+    </span>
+  </div>
+
+  <div class="email">
+    <a href="mailto:hello@avionium.com">hello@avionium.com</a>
+  </div>
+</body>
+</html>
