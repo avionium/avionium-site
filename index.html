@@ -50,7 +50,9 @@
     .popup {
       visibility: hidden;
       opacity: 0;
-      width: 200px;
+      max-width: 280px;       /* more room for text */
+      width: max-content;
+      max-width: 90vw;        /* never exceed screen width */
       background: #fff;
       color: #333;
       text-align: center;
@@ -64,6 +66,7 @@
       transition: opacity 0.4s ease, transform 0.4s ease;
       z-index: 10;
       font-size: 0.75rem;
+      line-height: 1.4;
       pointer-events: none;
     }
 
@@ -102,6 +105,15 @@
     .email a:hover {
       color: #555;
     }
+
+    /* Footer */
+    footer {
+      margin-top: 3rem;
+      padding-bottom: 1.5rem;
+      font-size: 0.75rem;
+      color: #aaa;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -109,22 +121,26 @@
 
   <div class="links">
     <span>airworthiness
-      <div class="popup">Experienced Airline, MRO & CAMO Engineers: Statuses & Compliance, Audit, Review, Build, Workscope</div>
+      <div class="popup">Experienced Airline, MRO & CAMO Engineers:<br>Statuses & Compliance, Audit, Review, Build, Workscope</div>
     </span> |
     <span>systems
-      <div class="popup">Experienced Implementation Consultants: Vendor Selection, Contracts, Design, Test, Deploy, Document, Train, Enhance</div>
+      <div class="popup">Experienced Implementation Consultants:<br>Vendor Selection, Contracts, Design, Test, Deploy, Document, Train, Enhance</div>
     </span> |
     <span>data
-      <div class="popup">Experienced Data Migration Consultants: Extract, Analysis, Cleanse, Restructure, Migrate</div>
+      <div class="popup">Experienced Data Migration Consultants:<br>Extract, Analysis, Cleanse, Restructure, Migrate</div>
     </span> |
     <span>representation
-      <div class="popup">Experienced Reps: Onsite/Remote, Audits & Findings, Detailed Inspections, Technical Transitions-Returns-Deliveries-Storage, Problem Solving, Liaison, Reports</div>
+      <div class="popup">Experienced Reps:<br>Onsite/Remote, Audits & Findings, Detailed Inspections, Technical Transitions-Returns-Deliveries-Storage, Problem Solving, Liaison, Reports</div>
     </span>
   </div>
 
   <div class="email">
     <a href="mailto:hello@avionium.com">hello@avionium.com</a>
   </div>
+
+  <footer>
+    © 2025 Avionium. All rights reserved.
+  </footer>
 
   <script>
     let popupTimeout;
@@ -161,5 +177,3 @@
   </script>
 </body>
 </html>
-
-
