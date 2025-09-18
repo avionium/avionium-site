@@ -29,12 +29,13 @@
       margin-top: 30vh; /* shift block down ~1/3 */
     }
 
+    /* Default (desktop / larger screens) */
     img {
       width: 64%;
       max-width: 480px;
       height: auto;
       display: block;
-      margin-bottom: 1.5rem; /* moderate gap before links */
+      margin-bottom: 1.5rem;
     }
 
     .links {
@@ -102,6 +103,17 @@
     footer a:hover {
       color: #555;
     }
+
+    /* Mobile override */
+    @media (max-width: 600px) {
+      img {
+        width: 90%;
+        max-width: none;
+      }
+      .links {
+        font-size: 0.7rem; /* smaller links text */
+      }
+    }
   </style>
 </head>
 <body>
@@ -109,7 +121,7 @@
     <img id="logo" src="logo.png" alt="Avionium Logo">
 
     <div class="links">
-      <span data-text="Experienced Airline, MRO & CAMO Engineering: Statuses & Compliance, Audit, Review, Build, Workscope, LLP BTB, Components, Structural, Engines">airworthiness</span> |
+      <span data-text="Experienced Airline, MRO & CAMO Engineering: Statuses & Compliance, Audit, Review, Build, Workscope">airworthiness</span> |
       <span data-text="Experienced Implementations: Vendor Selection, Contracts, BPR, Design, Test, Deploy, Document, Train, Enhance">systems</span> |
       <span data-text="Experienced Data Migration: Extract, Analyze, Cleanse, Restructure, Manipulate, Migrate">data</span> |
       <span data-text="Experienced Reps: Onsite/Remote, Audit, OIL, Detailed Inspections, Technical Transitions-Returns-Deliveries-Storage, Problem Solve, Liaise, Report">representation</span>
@@ -174,7 +186,7 @@
           index = (index + 1) % logos.length;
           cycleLogos(); // repeat cycle
         }, 250); // show variation for 0.25s
-      }, 7000); // wait 15s on original
+      }, 15000); // wait 15s on original
     }
 
     cycleLogos();
